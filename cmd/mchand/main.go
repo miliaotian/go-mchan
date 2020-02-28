@@ -7,9 +7,9 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"mchat-blockchain/app"
-	mchattypes "github.com/miliaotian/go-mchan/types"
-	"mchat-blockchain/version"
+	"github.com/miliaotian/go-mchan/app"
+	mchantypes "github.com/miliaotian/go-mchan/types"
+	"github.com/miliaotian/go-mchan/version"
 
 	abci "github.com/tendermint/tendermint/abci/types"
 	"github.com/tendermint/tendermint/libs/cli"
@@ -35,11 +35,11 @@ func main() {
 	cdc := app.MakeCodec()
 
 	config := sdk.GetConfig()
-	config.SetBech32PrefixForAccount(mchattypes.MchanBech32PrefixAccAddr, mchattypes.MchanBech32PrefixAccPub)
-	config.SetBech32PrefixForValidator(mchattypes.MchanBech32PrefixValAddr, mchattypes.MchanBech32PrefixValPub)
-	config.SetBech32PrefixForConsensusNode(mchattypes.MchanBech32PrefixConsAddr, mchattypes.MchanBech32PrefixConsPub)
-	config.SetCoinType(mchattypes.MchanCoinType)
-	config.SetFullFundraiserPath(mchattypes.MchanFullFundraiserPath)
+	config.SetBech32PrefixForAccount(mchantypes.MchanBech32PrefixAccAddr, mchantypes.MchanBech32PrefixAccPub)
+	config.SetBech32PrefixForValidator(mchantypes.MchanBech32PrefixValAddr, mchantypes.MchanBech32PrefixValPub)
+	config.SetBech32PrefixForConsensusNode(mchantypes.MchanBech32PrefixConsAddr, mchantypes.MchanBech32PrefixConsPub)
+	config.SetCoinType(mchantypes.MchanCoinType)
+	config.SetFullFundraiserPath(mchantypes.MchanFullFundraiserPath)
 	config.Seal()
 
 	ctx := server.NewDefaultContext()

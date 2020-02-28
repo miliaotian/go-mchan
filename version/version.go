@@ -5,7 +5,7 @@ import (
 	"runtime"
 )
 
-// Version - MChat version
+// Version - MChan version
 const Version = "0.0.1"
 
 var (

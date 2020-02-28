@@ -8,9 +8,9 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"mchat-blockchain/app"
-	mchattypes "github.com/miliaotian/go-mchan/types"
-	"mchat-blockchain/version"
+	"github.com/miliaotian/go-mchan/app"
+	mchantypes "github.com/miliaotian/go-mchan/types"
+	"github.com/miliaotian/go-mchan/version"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/keys"
@@ -36,11 +36,11 @@ func main() {
 
 	// Read in the configuration file for the sdk
 	config := sdk.GetConfig()
-	config.SetBech32PrefixForAccount(mchattypes.MchanBech32PrefixAccAddr, mchattypes.MchanBech32PrefixAccPub)
-	config.SetBech32PrefixForValidator(mchattypes.MchanBech32PrefixValAddr, mchattypes.MchanBech32PrefixValPub)
-	config.SetBech32PrefixForConsensusNode(mchattypes.MchanBech32PrefixConsAddr, mchattypes.MchanBech32PrefixConsPub)
-	config.SetCoinType(mchattypes.MchanCoinType)
-	config.SetFullFundraiserPath(mchattypes.MchanFullFundraiserPath)
+	config.SetBech32PrefixForAccount(mchantypes.MchanBech32PrefixAccAddr, mchantypes.MchanBech32PrefixAccPub)
+	config.SetBech32PrefixForValidator(mchantypes.MchanBech32PrefixValAddr, mchantypes.MchanBech32PrefixValPub)
+	config.SetBech32PrefixForConsensusNode(mchantypes.MchanBech32PrefixConsAddr, mchantypes.MchanBech32PrefixConsPub)
+	config.SetCoinType(mchantypes.MchanCoinType)
+	config.SetFullFundraiserPath(mchantypes.MchanFullFundraiserPath)
 	config.Seal()
 
 	rootCmd := &cobra.Command{
@@ -69,8 +69,8 @@ func main() {
 		// client.NewCompletionCmd(rootCmd, true),
 	)
 
-	// Add flags and prefix all env exposed with mchat
-	executor := cli.PrepareMainCmd(rootCmd, "MCHAT", app.DefaultCLIHome)
+	// Add flags and prefix all env exposed with mchan
+	executor := cli.PrepareMainCmd(rootCmd, "MCHAN", app.DefaultCLIHome)
 
 	err := executor.Execute()
 	if err != nil {

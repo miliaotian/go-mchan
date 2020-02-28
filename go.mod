@@ -1,4 +1,4 @@
-module mchat-blockchain
+module github.com/miliaotian/go-mchan
 
 go 1.13
 

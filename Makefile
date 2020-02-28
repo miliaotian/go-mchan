@@ -12,8 +12,8 @@ export GOARCH = amd64
 # include ledger support
 include Makefile.ledger
 
-ldflags = -X 'mchat-blockchain/version.NetworkType=$(NETWORK_TYPE)' \
-          -X 'mchat-blockchain/version.BuildTags=netgo'
+ldflags = -X 'github.com/miliaotian/go-mchan/version.NetworkType=$(NETWORK_TYPE)' \
+          -X 'github.com/miliaotian/go-mchan/version.BuildTags=netgo'
 
 BUILD_FLAGS := -tags "$(build_tags)" -ldflags "$(ldflags)"
 
